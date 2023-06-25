@@ -45,6 +45,7 @@ pipeline {
         always
         {
             echo "I am a postaction"
+            bat 'cal'
         }
         failure
         {
