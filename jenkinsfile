@@ -1,0 +1,58 @@
+pipeline {
+    parameters{
+        string(name:"EmailTo",defaultValue:'gk@gmail.com')
+    }
+    
+    agent any
+
+    stages {
+        stage('Simple_print ') {
+            steps {
+                echo 'Hello World'
+               //bat 'cal'
+            }
+        }
+        stage('Input_message') {
+            
+              
+            input{
+                    message "Continue?"
+                    ok "please"
+            }
+            
+            steps {
+                echo 'test'
+                //bat  echo '"$(BUILD_ID)"'
+                }
+               
+            }
+          
+        
+        stage('parameter_val') {
+            steps {
+                echo 'Hello Test'
+                echo "${params.EmailTo}"
+            }
+        }
+        stage('GK') {
+            steps {
+                echo 'Hello GK'
+            }
+        }
+    }
+    
+    post{
+        always
+        {
+            echo "I am a postaction"
+        }
+        failure
+        {
+            echo "I am a postaction failure"
+        }
+        success
+        {
+            echo "I am a postaction success"
+        }
+    }
+}
