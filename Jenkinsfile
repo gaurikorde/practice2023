@@ -5,10 +5,14 @@ pipeline {
     
     agent any
 
+    tools{
+        maven 'Maven'
+    }
     stages {
         stage('Simple_print ') {
             steps {
                 echo 'Hello World'
+                sh "mvn --version"
                //bat 'cal'
             }
         }
