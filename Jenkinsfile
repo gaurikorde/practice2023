@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                bat "mvn --version"
-               bat "pwd"
+               bat "Dir"
             }
         }
         stage('Input_message') {
