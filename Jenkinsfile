@@ -12,7 +12,7 @@ pipeline {
         stage('Simple_print ') {
             steps {
                 echo 'Hello World'
-                sh "mvn --version"
+               // sh "mvn --version"
                //bat 'cal'
             }
         }
